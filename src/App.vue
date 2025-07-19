@@ -83,6 +83,7 @@ const sortOrder = ref('')
 onMounted(async () => {
   try {
     const response = await fetch(`${import.meta.env.BASE_URL}front-end-dynamic-table.xlsx`)
+    
     const arrayBuffer = await response.arrayBuffer()
     const workbook = XLSX.read(arrayBuffer, { type: 'array' })
     const firstSheet = workbook.Sheets[workbook.SheetNames[0]]
