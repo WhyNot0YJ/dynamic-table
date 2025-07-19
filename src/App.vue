@@ -82,7 +82,7 @@ const sortOrder = ref('')
 // 页面加载时自动读取 public/front-end-dynamic-table.xlsx 文件
 onMounted(async () => {
   try {
-    const response = await fetch('/front-end-dynamic-table.xlsx')
+    const response = await fetch(`${import.meta.env.BASE_URL}front-end-dynamic-table.xlsx`)
     const arrayBuffer = await response.arrayBuffer()
     const workbook = XLSX.read(arrayBuffer, { type: 'array' })
     const firstSheet = workbook.Sheets[workbook.SheetNames[0]]
